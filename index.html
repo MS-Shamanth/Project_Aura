@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA — Build at the Bleeding Edge of AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="landing-body">
+
+  <div id="aura-loader" class="aura-loader">
+    <div class="loader-content">
+      <div class="loader-welcome">Welcome to</div>
+      <div class="loader-brand-wrapper">
+        <h1 class="loader-brand" data-text="AURA"> AURA</h1>
+        <div class="loader-light-sweep"></div>
+      </div>
+      <div class="loader-progress">
+        <div class="loader-progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cursor-glow"></div>
+  <div class="cursor-dot"></div>
+
+  <div class="aurora-bg" style="opacity: 0.15">
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+  </div>
+
+  <canvas id="particle-canvas" style="opacity: 0.2"></canvas>
+
+  <header class="top-nav" id="top-nav">
+    <div class="nav-left">
+      <img src="Logo.png" alt="AURA Logo"
+        style="height: 52px; width: auto; object-fit: contain; filter: drop-shadow(0 0 12px rgba(0,180,255,0.2));">
+    </div>
+    <nav class="nav-links">
+      <a href="#assess" class="nav-link active">Assessment</a>
+      <a href="#dashboard" class="nav-link">Dashboard</a>
+      <a href="#arch" class="nav-link">Architecture</a>
+    </nav>
+    <div class="nav-right">
+      <div class="nav-live-indicator">
+        <span class="nav-live-dot"></span>
+        <span class="nav-live-text">Live</span>
+      </div>
+      <button class="btn-primary nav-cta"
+        onclick="document.getElementById('assess').scrollIntoView({behavior: 'smooth'})">Run Demo →</button>
+    </div>
+  </header>
+
+  <main class="main-flow">
+
+    <section class="hero-section reveal">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="hero-badge-dot"></span>
+          <span>Powered by Databricks · MLflow · Unity Catalog</span>
+        </div>
+        <h1 class="hero-title">
+          Autonomous<br />
+          <span class="hero-accent">Credit Risk AI</span>
+        </h1>
+        <p class="hero-subtitle">Self-healing underwriting with regulatory transparency.<br />11-feature Random Forest · PSI drift detection · LLM hallucination firewall.</p>
+
+        <div class="hero-actions">
+          <button class="btn-hero-primary"
+            onclick="document.getElementById('assess').scrollIntoView({behavior: 'smooth'})">
+            <span>Run Assessment</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-hero-secondary"
+            onclick="document.getElementById('arch').scrollIntoView({behavior: 'smooth'})">
+            View Architecture
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value" data-count="297664" data-suffix="">297K+</div>
+            <div class="hero-stat-label">Applications Processed</div>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">0.754</div>
+            <div class="hero-stat-label">Champion AUC Score</div>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">11</div>
+            <div class="hero-stat-label">Engineered Features</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="classic-elements">
+        <div class="hero-image-glow"></div>
+        <img src="Greek_statue.png" alt="Greek Statue" class="hero-statue tilt-card" />
+      </div>
+    </section>
+
+    <section id="assess" class="content-section reveal">
+      <div class="section-container">
+        <div class="section-header-row">
+          <div>
+            <div class="section-kicker">01 — Assessment Engine</div>
+            <h2 class="section-title">Algorithmic Assessment</h2>
+            <p class="section-desc">Test our Random Forest (11-feature) model. One-click demo connects directly to
+              Databricks logic.</p>
+          </div>
+          <div class="section-header-badge">
+            <div class="model-status-pill">
+              <span class="status-dot green"></span>
+              <span>aura_credit_champion · Production</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="evaluation-grid">
+
+          <div class="eval-left">
+            <div class="demo-presets tilt-card">
+              <div class="demo-presets-label">
+                <span class="demo-presets-icon"></span> Demo Presets — Exact Databricks Output
+              </div>
+              <div class="demo-presets-btns">
+                <button class="demo-preset-btn high-risk" onclick="runDemoPreset('high_risk')">
+                  <div class="preset-icon"></div>
+                  <div class="preset-info">
+                    <div class="preset-title">Load High Risk Customer</div>
+                    <div class="preset-sub">Expected: 42.4% → REJECTED</div>
+                  </div>
+                </button>
+                <button class="demo-preset-btn low-risk" onclick="runDemoPreset('low_risk')">
+                  <div class="preset-icon"></div>
+                  <div class="preset-info">
+                    <div class="preset-title">Load Low Risk Customer</div>
+                    <div class="preset-sub">Expected: 5.8% → APPROVED</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="card form-card">
+              <h3 class="card-header">11-Feature Manual Entry</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Annual Income (Scaled)</label>
+                  <input type="number" id="f-income" placeholder="e.g. 1.5">
+                </div>
+                <div class="form-group">
+                  <label>Age (Years)</label>
+                  <input type="number" id="f-age" placeholder="e.g. 34">
+                </div>
+                <div class="form-group">
+                  <label>Credit/Income Ratio</label>
+                  <input type="number" id="f-cir" placeholder="e.g. 5.0">
+                </div>
+                <div class="form-group">
+                  <label>Employment Years</label>
+                  <input type="number" id="f-emp" placeholder="e.g. 5">
+                </div>
+                <div class="form-group">
+                  <label>Ext Source 1</label>
+                  <input type="number" id="f-ext1" placeholder="e.g. 0.50" value="0.5">
+                </div>
+                <div class="form-group">
+                  <label>Ext Source 2</label>
+                  <input type="number" id="f-ext2" placeholder="e.g. 0.65">
+                </div>
+                <div class="form-group">
+                  <label>Ext Source 3</label>
+                  <input type="number" id="f-ext3" placeholder="e.g. 0.70">
+                </div>
+                <div class="form-group">
+                  <label>Applicant Name (Optional)</label>
+                  <input type="text" id="f-name" placeholder="John Doe">
+                </div>
+              </div>
+              <p class="form-hint">* Remaining 4 engineered features (ext_mean, ext_min, income_age_ratio,
+                credit_per_year) are computed dynamically.</p>
+              <button class="btn-primary full-width shimmer-btn mt-4" style="margin-top: 1.5rem"
+                onclick="assessLoan()">Run Assessment</button>
+            </div>
+          </div>
+
+          <div class="eval-right card result-panel" id="result-panel">
+            <div id="result-empty" class="result-empty">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <p>Click a demo preset to instantly evaluate the applicant using the 11-feature core model.</p>
+            </div>
+            <div id="result-content" style="display: none;">
+              <div id="result-verdict" class="result-verdict"></div>
+
+              <div class="result-score-label"
+                style="font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">
+                DEFAULT PROBABILITY (MODEL OUTPUT)</div>
+              <div class="result-score-track"
+                style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 4px; margin: 8px 0; overflow: hidden; width: 100%;">
+                <div id="result-bar" class="result-score-fill" style="height: 100%; transition: width 0.8s ease;"></div>
+              </div>
+              <div id="result-score-val" class="result-score-val"
+                style="font-size: 12px; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 24px;">
+              </div>
+
+              <div class="result-score-label"
+                style="font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">
+                FEATURE VECTOR (11 ENGINEERED FEATURES)</div>
+              <div id="result-features" class="computed-features"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 24px;"></div>
+
+              <div class="result-score-label"
+                style="font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">
+                HALLUCINATION FILTER LOGIC</div>
+              <div id="result-halluc" class="halluc-eval" style="margin: 8px 0 24px;"></div>
+
+              <div class="result-explain-box"
+                style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 8px; border: 1px solid var(--border);">
+                <div class="explain-label"
+                  style="font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 8px;">
+                  RAG / MLFLOW EXPLANATION:</div>
+                <div id="result-ex" style="font-size: 13px; color: #fff; line-height: 1.6;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="content-section reveal" style="margin-top: 5rem;">
+      <div class="section-container">
+        <div class="section-header-row" style="margin-bottom: 2.5rem;">
+          <div>
+            <div class="section-kicker">02 — System Metrics</div>
+            <h2 class="section-title" style="margin-bottom: 0;">System Dashboard</h2>
+          </div>
+          <div class="section-header-badge">
+            <div class="live-badge">
+              <span class="status-dot green"></span>
+              LIVE · <span id="live-clock"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card success">
+            <div class="kpi-label">Active Model</div>
+            <div class="kpi-value cyan" id="dash-model">Champion</div>
+            <div class="kpi-sub green">aura_credit_champion · Production</div>
+          </div>
+          <div class="kpi-card success">
+            <div class="kpi-label">Champion AUC</div>
+            <div class="kpi-value green" id="dash-auc">0.7210</div>
+            <div class="kpi-sub green">Above 0.70 baseline</div>
+          </div>
+          <div class="kpi-card critical">
+            <div class="kpi-label">Features Drifted</div>
+            <div class="kpi-value red" id="dash-drifted">2</div>
+            <div class="kpi-sub red">income, credit_income_ratio</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Challenger AUC</div>
+            <div class="kpi-value" id="dash-challenger">0.7540</div>
+            <div class="kpi-sub green">+0.033 vs Champion</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Hallucinations Blocked</div>
+            <div class="kpi-value red" id="dash-halluc">2</div>
+            <div class="kpi-sub">of 3 applications evaluated</div>
+          </div>
+        </div>
+
+        <div class="widget-grid" style="margin-top: 3rem;">
+          <div class="widget-card drift-widget">
+            <div class="widget-header">
+              <div class="widget-title">
+                <div class="widget-icon drift"></div>
+                <div>
+                  <div class="widget-name">Drift Detection Engine</div>
+                  <div class="widget-source">gold.drift_metrics · PSI Analysis</div>
+                </div>
+              </div>
+              <div class="widget-badge badge high">2 CRITICAL</div>
+            </div>
+            <div id="drift-widget-content"></div>
+          </div>
+
+          <div class="widget-card retrain-widget">
+            <div class="widget-header">
+              <div class="widget-title">
+                <div class="widget-icon retrain"></div>
+                <div>
+                  <div class="widget-name">Retraining Ledger</div>
+                  <div class="widget-source">gold.retraining_log</div>
+                </div>
+              </div>
+              <div class="widget-badge badge low">COMPLETED</div>
+            </div>
+            <div id="retrain-widget-content"></div>
+          </div>
+
+          <div class="widget-card halluc-widget">
+            <div class="widget-header">
+              <div class="widget-title">
+                <div class="widget-icon halluc"></div>
+                <div>
+                  <div class="widget-name">LLM Hallucination Firewall</div>
+                  <div class="widget-source">gold.llm_evaluation_metrics</div>
+                </div>
+              </div>
+              <div class="widget-badge badge high">INTERVENTIONS ACTIVE</div>
+            </div>
+            <div id="halluc-widget-content" style="overflow-x:auto;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="arch" class="content-section reveal" style="margin-top: 8rem; margin-bottom: 8rem;">
+      <div class="section-container">
+        <div class="section-kicker" style="text-align: center;">03 — Infrastructure</div>
+        <h2 class="section-title" style="text-align: center;">The Foundation</h2>
+        <p class="section-desc" style="max-width: 600px; margin: 0 auto 5rem auto; text-align: center;">Built on robust
+          Databricks infrastructure, forming a completely self-sustaining MLOps lifecycle from ingestion to
+          hallucination-filtered serving.</p>
+
+        <div class="arch-pipeline">
+          <img src="Pillar.png" alt="Pillar" class="arch-pillar-img left" />
+
+          <div class="arch-node">
+            <div class="arch-node-icon bronze">Bronze</div>
+            <div class="arch-node-label"></div>
+          </div>
+          <div class="arch-arrow"><svg>
+              <line x1="0" y1="8" x2="30" y2="8" />
+              <polygon points="30,4 40,8 30,12" />
+            </svg></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon silver">Silver</div>
+            <div class="arch-node-label"></div>
+          </div>
+          <div class="arch-arrow"><svg>
+              <line x1="0" y1="8" x2="30" y2="8" />
+              <polygon points="30,4 40,8 30,12" />
+            </svg></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon gold">Gold</div>
+            <div class="arch-node-label"></div>
+          </div>
+          <div class="arch-arrow"><svg>
+              <line x1="0" y1="8" x2="30" y2="8" />
+              <polygon points="30,4 40,8 30,12" />
+            </svg></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon mlflow">MLflow</div>
+            <div class="arch-node-label"></div>
+          </div>
+          <div class="arch-arrow"><svg>
+              <line x1="0" y1="8" x2="30" y2="8" />
+              <polygon points="30,4 40,8 30,12" />
+            </svg></div>
+
+          <div class="arch-node">
+            <div class="arch-node-icon serving">Serving</div>
+            <div class="arch-node-label"></div>
+          </div>
+
+          <img src="Pillar.png" alt="Pillar" class="arch-pillar-img right" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer
+    style="margin-top: 8rem; border-top: 1px solid rgba(255,255,255,0.05); background: #050505; font-family: var(--font-body); font-size: 14px; color: var(--text-secondary);">
+
+    <div
+      style="padding: 5rem 4rem; display: flex; justify-content: space-between; align-items: flex-start; max-width: 1400px; margin: 0 auto;">
+
+      <div style="flex: 1;">
+        <h3
+          style="color: #fff; font-family: var(--font-display); font-size: 22px; margin-bottom: 0.5rem; letter-spacing: -0.5px;">
+          AURA</h3>
+        <div
+          style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 2rem;">
+          Autonomous Credit Risk AI</div>
+        <p style="max-width: 300px; line-height: 1.6; font-size: 13px;">Self-Healing Credit AI.<br>Meticulously
+          engineered for regulatory transparency and autonomous MLOps.</p>
+
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 2rem;">
+          <span
+            style="background: rgba(0,240,255,0.08); border: 1px solid rgba(0,240,255,0.2); color: #00f0ff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: var(--font-mono);">Databricks</span>
+          <span
+            style="background: rgba(0,240,255,0.08); border: 1px solid rgba(0,240,255,0.2); color: #00f0ff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: var(--font-mono);">MLflow</span>
+          <span
+            style="background: rgba(0,240,255,0.08); border: 1px solid rgba(0,240,255,0.2); color: #00f0ff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: var(--font-mono);">Unity
+            Catalog</span>
+          <span
+            style="background: rgba(0,240,255,0.08); border: 1px solid rgba(0,240,255,0.2); color: #00f0ff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: var(--font-mono);">XGBoost</span>
+          <span
+            style="background: rgba(0,240,255,0.08); border: 1px solid rgba(0,240,255,0.2); color: #00f0ff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: var(--font-mono);">Delta
+            Lake</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 6rem;">
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <span style="color: #fff; font-weight: 600; font-size: 15px; margin-bottom: 0.2rem;">Team</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Shreyank</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Shamanth</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Tanya</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Yashas</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <span style="color: #fff; font-weight: 600; font-size: 15px; margin-bottom: 0.2rem;">Pipeline</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Bronze → Silver → Gold</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">PSI Drift Detection</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Champion / Challenger</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Auto Promotion</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Unity Catalog Governance</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <span style="color: #fff; font-weight: 600; font-size: 15px; margin-bottom: 0.2rem;">Stats</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">297,664 Applications</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">AUC: 0.7352</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">11 Engineered Features</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">3 Features Drifted</span>
+          <span style="color: var(--text-secondary); font-size: 13px;">Challenger Promoted ✅</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: 2rem;">
+      <img src="Footer_img.png" alt="AURA Footer" style="width: 100%; height: auto; display: block; opacity: 0.85;" />
+    </div>
+
+    <div
+      style="border-top: 1px solid rgba(255,255,255,0.05); padding: 1.5rem 4rem; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-size: 12px; color: var(--text-muted);">© 2026 AURA — HackBricks Final Round · Scaler School of
+        Technology</span>
+      <span
+        style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">models:/workspace.default.aura_credit_champion@champion</span>
+    </div>
+
+  </footer>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
